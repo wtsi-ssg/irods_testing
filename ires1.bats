@@ -1,6 +1,6 @@
 #!/usr/bin/env bats
 
-#tests use iput, iget, ils, ipwd
+##tests use iput, iget, ils, ipwd
 @test "Check the output of ils" {
 	run ils
 	 [[ ${lines[0]} =~ "/tempzone/home/irods:" ]]
@@ -28,7 +28,7 @@
 @test "Check that iput stores a txt document correctly" {
 	FILENAME=$$.txt
 	touch $FILENAME
-	iput -K -V -R $FILENAME
+	iput -K $FILENAME
 	run ils
 	for i in $lines[@]; do
 		if [ i = $FILENAME ]; then
@@ -38,39 +38,41 @@
 	[ false ]
 }
 
+
 @test "Check that iget can retrieve the txt document correctly" {
 	FILENAME=$$.txt
-	run iget $FILENAME
+	run iget -K $FILENAME
+	[ $status = 0 ]
+	[ -e $FILENAME ]
+}
+
+##Start of Resource Tests
+@test "Create directory for irods-ires1-testres1" {
+	run mkdir /irods-ires1-testres1
 	[ $status = 0 ]
 }
 
-
-@test "Check that iadmin can create a resource group" {
-	run iadmin atrg test-green irods-ires1-testres1
+@test "Chown directory for irods-ires1-testres1" {
+	run chown -R irods:irods /irods-ires1-testres1
 	[ $status = 0 ]
 }
 
-@test "Check that iadmin can append to a resource group" {
-	run iadmin atrg test-green irods-ires1-testres2
+@test "Check that iadmin can create irods-ires1-testres1 on ires1" {
+	run iadmin mkresc irods-ires1-testres1 'unix file system' cache ires1 /irods-ires1-testres1
 	[ $status = 0 ]
 }
 
-@test "Check that iadmin can create a second resource group" {
-	run iadmin atrg test-red irods-ires2-testres1
+@test "Create directory for irods-ires1-testres2" {
+	run mkdir /irods-ires1-testres2
 	[ $status = 0 ]
 }
 
-@test "Check that iadmin can append to a second resource group" {
-	run iadmin atrg test-red irods-ires2-testres2
+@test "Chown directory for irods-ires1-testres2" {
+	run chown -R irods:irods /irods-ires1-testres2
 	[ $status = 0 ]
 }
 
-@test "Check that iadmin can create a throwaway resource group" {
-	run iadmin atrg test-demo demoResc
-	[ $status = 0 ]
-}
-
-@test "Check that iadmin can remove a resource from a throwaway resource group" {
-	run iadmin rfrg test-demo demoResc
+@test "Check that iadmin can create irods-ires1-testres2 on ires1" {
+	run iadmin mkresc irods-ires1-testres2 'unix file system' cache ires1 /irods-ires1-testres2
 	[ $status = 0 ]
 }
