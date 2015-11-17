@@ -7,22 +7,22 @@ setup() {
 ##tests use iput, iget, ils, ipwd
 @test "Check the output of ils" {
 	run ils
-	 [[ ${lines[0]} =~ "/tempzone/home/irods:" ]]
+	 [[ ${lines[0]} =~ "/tempZone/home/irods:" ]]
 }
 
 @test "Check the output of ipwd" {
 	run ipwd
-	[ $output = "/tempzone/home/irods"]
+	[ $output = "/tempZone/home/irods"]
 }
 
 @test "make a collection" {
 	run imkdir /TestCol
-	[ $output = "/tempzone/home/irods"]
+	[ $output = "/tempZone/home/irods"]
 }
 
 @test "remove a collection" {
 	run irm /TestCol
-	[ $output = "/tempzone/home/irods"]
+	[ $output = "/tempZone/home/irods"]
 }
 
 
