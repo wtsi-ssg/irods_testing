@@ -1,5 +1,9 @@
 #!/usr/bin/env bats
 
+setup() {
+	PATH=$PATH:/usr/local/iRODS/clients/icommands/bin
+}
+
 ##tests use iput, iget, ils, ipwd
 @test "Check the output of ils" {
 	run ils
