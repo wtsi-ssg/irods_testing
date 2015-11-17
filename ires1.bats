@@ -12,17 +12,17 @@ setup() {
 
 @test "Check the output of ipwd" {
 	run ipwd
-	[ $output = "/tempZone/home/irods:"]
+	[ $output = "/tempZone/home/irods:" ]
 }
 
 @test "make a collection" {
 	run imkdir /TestCol
-	[ $output = "/tempZone/home/irods:"]
+	[ $output = "/tempZone/home/irods:" ]
 }
 
 @test "remove a collection" {
 	run irm /TestCol
-	[ $output = "/tempZone/home/irods:"]
+	[ $output = "/tempZone/home/irods:" ]
 }
 
 
