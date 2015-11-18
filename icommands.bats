@@ -56,6 +56,20 @@ setup(){
 	[ -e ${INSERT_FILE} ]
 }
 
+
+@test "Add Metadata" {
+	imeta add -d $INSERT_FILE testname testvalue testunit
+	echo $output
+	[ $status = 0 ]
+}
+
+@test "List Metadata" {
+	skip "need to run this to see what the output actually is"
+	imeta ls -d $INSERT_FILE
+	echo $output
+	[[ ${lines[1]} =~ "attribute: testname" ]]
+}
+
 @test "remove temporary file using irm" {
 	run irm $INSERT_FILE
 	echo $output
