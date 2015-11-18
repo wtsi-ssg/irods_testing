@@ -50,3 +50,8 @@ setup(){
 	[ $status = 0 ]
 	[ -e $INSERT_FILE ]
 }
+
+@test "remove temporary file using irm" {
+	run irm $INSERT_FILE
+	[ $status = 0 ]
+}
