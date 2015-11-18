@@ -62,7 +62,7 @@ setup(){
 	[ $status = 0 ]
 }
 
-teardown(){
+#could use the teardown() function here but it seems to run after every test
 	rm $INSERT_FILE
 	run irm $INSERT_FILE
-}
+
