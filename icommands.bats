@@ -1,6 +1,9 @@
 #!/usr/bin/env bats
 
-
+setup(){
+	INSERT_FILE=test.txt
+	touch $INSERT_FILE
+}
 
 #tests use iput, iget, ils, ipwd
 @test "Check the output of ils" {
@@ -28,10 +31,7 @@
 	[ $status = "0" ]
 }
 
-setup(){
-	INSERT_FILE=test.txt
-	touch $INSERT_FILE
-}
+
 @test "Check that iput stores a txt document correctly" {	
 
  	iput -K $INSERT_FILE
@@ -43,9 +43,7 @@ setup(){
 	done
 	[ false ]
 }
-teardown(){
-	rm $INSERT_FILE
-}
+
 
 @test "Check that iget can retrieve the txt document correctly" {
 	
@@ -60,4 +58,8 @@ teardown(){
 @test "remove temporary file using irm" {
 	run irm $INSERT_FILE
 	[ $status = 0 ]
+}
+
+teardown(){
+	rm $INSERT_FILE
 }
