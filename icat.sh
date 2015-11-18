@@ -1,6 +1,5 @@
-#!/bin/bash
+#!/bin/bash 
 
-bats << EOF
-icommands.bats
-icat_resource.bats
-EOF
+
+bats icommands.bats
+bats icat_resource.bats
