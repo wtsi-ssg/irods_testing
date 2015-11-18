@@ -50,11 +50,11 @@ teardown(){
 @test "Check that iget can retrieve the txt document correctly" {
 	
 	echo $INSERT_FILE
-	run iget -K $INSERT_FILE ${INSERT_FILE}_gotten
+	run iget -K -f $INSERT_FILE 
 	echo $status 
 	echo $output
 	[ $status = 0 ]
-	[ -e ${INSERT_FILE}_gotten ]
+	[ -e ${INSERT_FILE} ]
 }
 
 @test "remove temporary file using irm" {
