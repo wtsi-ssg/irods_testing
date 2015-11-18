@@ -63,6 +63,7 @@ setup(){
 }
 
 #could use the teardown() function here but it seems to run after every test
+@test "clean up" {
 	rm $INSERT_FILE
 	run irm $INSERT_FILE
-
+}
