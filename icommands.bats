@@ -1,5 +1,12 @@
 #!/usr/bin/env bats
 
+setup(){
+	INSERT_FILE=test.txt
+	touch $INSERT_FILE
+}
+teardown(){
+	rm $INSERT_FILE
+}
 #tests use iput, iget, ils, ipwd
 @test "Check the output of ils" {
 	run ils
@@ -15,22 +22,19 @@
 
 @test "make a collection" {
 	run imkdir TestCol
-	echo $output
+        echo $output	
 	[ $status = "0" ]
 }
 
 @test "remove a collection" {
+
 	run irm -r TestCol
 	echo $output
 	[ $status = "0" ]
 }
-setup(){
-        
-	INSERT_FILE=test.txt
-	
-}
+
 @test "Check that iput stores a txt document correctly" {	
-	touch $INSERT_FILE 
+
  	iput -K $INSERT_FILE
 	run ils
 	for i in $lines[@]; do
@@ -40,18 +44,19 @@ setup(){
 	done
 	[ false ]
 }
-setup(){
-	INSERT_FILE=test.txt
-}
+
 @test "Check that iget can retrieve the txt document correctly" {
+	
 	echo $INSERT_FILE
-	rm $INSERT_FILE
 	run iget -K $INSERT_FILE
+	echo $status 
+	echo $output
 	[ $status = 0 ]
 	[ -e $INSERT_FILE ]
 }
 
 @test "remove temporary file using irm" {
+	skip
 	run irm $INSERT_FILE
 	[ $status = 0 ]
 }
