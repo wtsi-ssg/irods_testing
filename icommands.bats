@@ -1,9 +1,5 @@
 #!/usr/bin/env bats
 
-setup() {
-	PATH=$PATH:/usr/local/iRODS/clients/icommands/bin
-}
-
 #tests use iput, iget, ils, ipwd
 @test "Check the output of ils" {
 	run ils
@@ -14,38 +10,43 @@ setup() {
 @test "Check the output of ipwd" {
 	run ipwd
 	echo $output
-	[ $output = "/tempZone/home/rods"]
+	[ $output = "/tempZone/home/rods" ]
 }
 
 @test "make a collection" {
-	run imkdir /TestCol
+	run imkdir TestCol
 	echo $output
-	[ $output = "/tempZone/home/rods"]
+	[ $status = "0" ]
 }
 
 @test "remove a collection" {
-	run irm /TestCol
+	run irm -r TestCol
 	echo $output
-	[ $output = "/tempZone/home/rods"]
+	[ $status = "0" ]
 }
-
-@test "Check that iput stores a txt document correctly" {
-	FILENAME=$$.txt
-	touch $FILENAME
-	iput -K $FILENAME
+setup(){
+        
+	INSERT_FILE=test.txt
+	
+}
+@test "Check that iput stores a txt document correctly" {	
+	touch $INSERT_FILE 
+ 	iput -K $INSERT_FILE
 	run ils
 	for i in $lines[@]; do
-		if [ i = $FILENAME ]; then
+		if [ i = $INSERT_FILE ]; then
 			[ true ]
 		fi
 	done
 	[ false ]
 }
-
-
+setup(){
+	INSERT_FILE=test.txt
+}
 @test "Check that iget can retrieve the txt document correctly" {
-	FILENAME=$$.txt
-	run iget -K $FILENAME
+	echo $INSERT_FILE
+	rm $INSERT_FILE
+	run iget -K $INSERT_FILE
 	[ $status = 0 ]
-	[ -e $FILENAME ]
+	[ -e $INSERT_FILE ]
 }
