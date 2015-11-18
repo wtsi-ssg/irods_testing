@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 
 setup(){
-	INSERT_FILE=test.txt
+	INSERT_FILE=irods_automated_test.txt
 	touch $INSERT_FILE
 }
 
@@ -34,7 +34,7 @@ setup(){
 
 @test "Check that iput stores a txt document correctly" {	
 
- 	iput -K $INSERT_FILE
+ 	iput -K -f $INSERT_FILE
 	run ils
 	for i in $lines[@]; do
 		if [ i = $INSERT_FILE ]; then
@@ -42,6 +42,7 @@ setup(){
 		fi
 	done
 	[ false ]
+	echo $output
 }
 
 
@@ -57,9 +58,11 @@ setup(){
 
 @test "remove temporary file using irm" {
 	run irm $INSERT_FILE
+	echo $output
 	[ $status = 0 ]
 }
 
 teardown(){
 	rm $INSERT_FILE
+	run irm $INSERT_FILE
 }
