@@ -72,7 +72,7 @@
 @test "Confirm test-ablative resource group" {
 	run iadmin lrg
 	echo ${lines[2]}
-	 [[ ${lines[2]} =~ "test-ablative" ]]
+	 [[ ${lines[@]} =~ "test-ablative" ]]
 }
 
 @test "Confirm test-ablative resource group has irods-ires2-testres1" {
