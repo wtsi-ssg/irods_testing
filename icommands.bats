@@ -9,13 +9,13 @@ setup(){
 @test "Check the output of ils" {
 	run ils
 	echo ${lines[0]}
-	 [[ ${lines[0]} =~ "/tempZone/home/irods:" ]]
+	 [[ ${lines[0]} =~ "/tempZone/home/rods:" ]]
 }
 
 @test "Check the output of ipwd" {
 	run ipwd
 	echo $output
-	[ $output = "/tempZone/home/irods" ]
+	[ $output = "/tempZone/home/rods" ]
 }
 
 @test "make a collection" {
