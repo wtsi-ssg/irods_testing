@@ -1,8 +1,8 @@
 #!/bin/bash 
 
-ARRAY=(icommands.bats icat_resource.bats useraccounts.bats)
+ARRAY=(./bats/icommands.bats ./setup3/icat_resource.bats ./bats/useraccounts.bats)
 
 for FILE in ${ARRAY[@]};do
 	echo $FILE
-	bats "./bats/"$FILE
+	bats $FILE
 done

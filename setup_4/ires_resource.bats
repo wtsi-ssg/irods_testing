@@ -17,7 +17,7 @@
 }
 
 @test "Check that iadmin can create irods-$( hostname )-testres1 on $( hostname )" {
-	run iadmin mkresc irods-$( hostname )-testres1 'unix file system' cache $( hostname ) /irods-$( hostname )-testres1
+	run iadmin mkresc irods-$( hostname )-testres1 unixfilesystem $( hostname ):/irods-$( hostname )-testres1 
 	echo $output
 	echo $status
 	[ $status = 0 ]
@@ -38,7 +38,7 @@
 }
 
 @test "Check that iadmin can create irods-$( hostname )-testres2 on ires2" {
-	run iadmin mkresc irods-$( hostname )-testres2 'unix file system' cache $( hostname ) /irods-$( hostname )-testres2
+	run iadmin mkresc irods-$( hostname )-testres2 unixfilesystem $( hostname ):/irods-$( hostname )-testres2
 	echo $output
 	echo $status
 	[ $status = 0 ]
