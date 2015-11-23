@@ -1,11 +1,8 @@
 #!/bin/bash
 
-GREEN='\033[0;32m'
-
 ARRAY=(icommands.bats ires2_resource.bats)
 
 for FILE in ${ARRAY[@]};do
-        printf "${GREEN}%*s\n" "${COLUMNS:-$(tput cols)}" '' | tr ' ' \#
-        printf "${GREEN}%*s\n" "${COLUMNS:-$(tput cols)}" '' | tr ' ' \#
+        echo $FILE
 	bats $FILE
 done
