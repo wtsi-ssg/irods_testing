@@ -58,11 +58,6 @@
 	[ $status = 0 ]
 }
 
-@test "Confirm test-red resource group has had irods-ires2-testres1 removed" {
-	run iadmin lrg test-red
-	echo ${lines}
-	 ! [[ ${lines[@]} =~ "irods-ires2-testres1" ]]
-}
 @test "create test-ablative resource group from irods-ires2-testres1 " {
 	run iadmin atrg test-ablative irods-ires2-testres1
 	echo $output
