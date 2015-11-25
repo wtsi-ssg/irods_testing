@@ -265,7 +265,7 @@ acPostProcForCopy { }
 acPostProcForFilePathReg { }
 acPostProcForCreate { }
 # acPostProcForOpen {writeLine("serverLog",$objPath); }
-#acPostProcForOpen { }
+acPostProcForOpen { }
 
 #@include "acPostProcForOpen"
 
