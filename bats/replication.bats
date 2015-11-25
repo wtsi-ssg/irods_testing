@@ -9,7 +9,7 @@ setup(){
 	DEFAULT_RESOURCE_GROUP=test-green
 }
 
-@test "Check that iput stores a txt document correctly" {	
+@test "Check that iput stores a txt document with replicas" {	
 
  	iput -K -f -R $DEFAULT_RESOURCE_GROUP $INSERT_FILE
 	run ils
