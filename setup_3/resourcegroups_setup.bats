@@ -52,12 +52,6 @@
 	[ $status = 0 ]
 }
 
-@test "remove irods-ires2-testres1 from test-red resource group " {
-	run iadmin rfrg test-red irods-ires2-testres2
-	echo $output
-	[ $status = 0 ]
-}
-
 @test "create test-ablative resource group from irods-ires2-testres1 " {
 	run iadmin atrg test-ablative irods-ires2-testres1
 	echo $output
@@ -86,3 +80,10 @@
 	run iadmin lrg 
 	 ! [[ ${lines[@]} =~ "test-ablative" ]]
 }
+
+@test "re-add irods-ires2-testres1 to test-red resource group" {
+	run iadmin atrg test-red irods-ires2-testres1
+	echo $output
+	[ $status = 0 ]
+}
+
