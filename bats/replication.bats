@@ -5,12 +5,13 @@
 
 setup(){
 	INSERT_FILE=irods_automated_replication_test.txt
-	touch $INSERT_FILE
+	dd if=/dev/zero of=$INSERT_FILE bs=1024 count=1
+	DEFAULT_RESOURCE_GROUP=test-green
 }
 
 @test "Check that iput stores a txt document correctly" {	
 
- 	iput -K -f $INSERT_FILE
+ 	iput -K -f -R $DEFAULT_RESOURCE_GROUP $INSERT_FILE
 	run ils
 	for i in $lines[@]; do
 		if [ i = $INSERT_FILE ]; then
