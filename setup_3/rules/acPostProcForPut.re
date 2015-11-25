@@ -2,17 +2,17 @@ acPostProcForPut {
 #
 # This is currently on a POC server, the resource group names would change for production systems
 #
-  on (( $rescGroupName == "seq-green" ) &&
+  on (( $rescGroupName == "test-green" ) &&
         !( $objPath like regex '/seq/illumina/library_merge/.*\.(bam|cram)$' )
   )
   {
-    wtsiDoReplication('seq-red');
+    wtsiDoReplication('test-red');
   }
   on (( $rescGroupName == "seq-red" ) &&
         !( $objPath like regex '/seq/illumina/library_merge/.*\.(bam|cram)$' )
   )
   {
-    wtsiDoReplication('seq-green');
+    wtsiDoReplication('test-green');
   }
 }
 
