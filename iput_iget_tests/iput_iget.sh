@@ -6,23 +6,14 @@ N=16 # num files
 mkdir -p benchmarks.dir
 imkdir -p benchmarks.coll
 
-cd random_files.dir
-
-for i in random_file.128M.*
-do
-    echo iput -R ${RESOURCE} -K -f $PWD/$i benchmarks.coll/
-done > ../benchmarks.dir/iput-all
-
-for i in random_file.128M.*
-do
-    echo iget -R ${RESOURCE} -f benchmarks.coll/$i
-done > ../benchmarks.dir/iget-all
-
-# Benchmark
-cd ../benchmarks.dir
 
 for i in `seq -w $N`
 do
+    cd random_files.dir
+    echo iput -R ${RESOURCE} -K -f $PWD/$i benchmarks.coll/ > ../benchmarks.dir/iput-all
+    echo iget -R ${RESOURCE} -f benchmarks.coll/$i > ../benchmarks.dir/iget-all
+    # Benchmark
+    cd ../benchmarks.dir
     echo
     echo $i iput jobs:
     date
