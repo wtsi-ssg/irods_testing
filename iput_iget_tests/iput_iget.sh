@@ -7,7 +7,7 @@ if ! [[ $2 =~ $re ]] ; then
     echo "error: Not a number" >&2; exit 1
 fi
 
-if ! [ "$1" ==  "iput" ] || [ "$1" == "iget" ] ;then
+if [ "$1" !=  "iput" ] && [ "$1" != "iget" ]  ;then
     echo "error: Not 'iput' or 'iget'" 
     exit 1
 fi
