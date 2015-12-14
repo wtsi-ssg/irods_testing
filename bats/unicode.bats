@@ -23,13 +23,13 @@ setup(){
 @test "Check that iget can retrieve the txt document correctly" {
 	
 	run iget -K -f $INSERT_FILE 
-	[ $status -eq 0 ]
+	[ "$status" -eq 0 ]
 	[ -e ${INSERT_FILE} ]
 }
 
 @test "Add Unicode Metadata" {
 	run imeta add -d $INSERT_FILE unicode_test test_ɸ_value testunit
-	[ $status = 0 ]
+	[ "$status" -eq 0 ]
 }
 
 @test "List Unicode Metadata" {
