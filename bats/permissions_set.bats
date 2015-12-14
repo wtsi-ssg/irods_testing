@@ -20,3 +20,16 @@ setup(){
 	[ false ]
 	echo $output
 }
+
+@test "add owner permission to $INSERT_FILE for testaccount1" {
+
+	run ichmod -M own testaccount1 $INSERT_FILE
+	echo $output
+	[ $status = "0" ]
+}
+
+@test "verify that testaccount1 retains permissions to $INSERT_FILE" {	
+
+	run ils -A $INSERT_FILE | grep ACL | grep testaccount1
+	[ $status = "0" ]
+}
