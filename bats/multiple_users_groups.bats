@@ -68,61 +68,61 @@
 	[ $status = "0" ]
 }
 
-test "Add testuser1 to testgroup1" {
+@test "Add testuser1 to testgroup1" {
 	run iadmin atg testgroup1 testaccount1 
     echo $output	
 	[ $status = "0" ]
 }
 
-test "Add testuser2 to testgroup1" {
+@test "Add testuser2 to testgroup1" {
 	run iadmin atg testgroup1 testaccount2 
     echo $output	
 	[ $status = "0" ]
 }
 
-test "Add testuser3 to testgroup1" {
+@test "Add testuser3 to testgroup1" {
 	run iadmin atg testgroup1 testaccount3 
     echo $output	
 	[ $status = "0" ]
 }
 
-test "Add testuser4 to testgroup1" {
+@test "Add testuser4 to testgroup1" {
 	run iadmin atg testgroup1 testaccount4 
     echo $output	
 	[ $status = "0" ]
 }
 
-test "Add testuser5 to testgroup1" {
+@test "Add testuser5 to testgroup1" {
 	run iadmin atg testgroup1 testaccount5 
     echo $output	
 	[ $status = "0" ]
 }
 
-test "Add testuser6 to testgroup1" {
+@test "Add testuser6 to testgroup1" {
 	run iadmin atg testgroup1 testaccount6 
     echo $output	
 	[ $status = "0" ]
 }
 
-test "Add testuser7 to testgroup1" {
+@test "Add testuser7 to testgroup1" {
 	run iadmin atg testgroup1 testaccount7 
     echo $output	
 	[ $status = "0" ]
 }
 
-test "Add testuser8 to testgroup1" {
+@test "Add testuser8 to testgroup1" {
 	run iadmin atg testgroup1 testaccount8 
     echo $output	
 	[ $status = "0" ]
 }
 
-test "Add testuser9 to testgroup1" {
+@test "Add testuser9 to testgroup1" {
 	run iadmin atg testgroup1 testaccount9 
     echo $output	
 	[ $status = "0" ]
 }
 
-test "Add testuser10 to testgroup1" {
+@test "Add testuser10 to testgroup1" {
 	run iadmin atg testgroup1 testaccount10 
     echo $output	
 	[ $status = "0" ]
