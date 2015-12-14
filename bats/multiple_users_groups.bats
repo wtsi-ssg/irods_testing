@@ -33,7 +33,7 @@
 }
 
 @test "Add  testaccount6" {
-	run iadmin mkuser testaccount56 rodsuser
+	run iadmin mkuser testaccount6 rodsuser
     echo $output	
 	[ $status = "0" ]
 }
@@ -130,6 +130,6 @@
 
 @test "Check that ten users are in testgroup1" {
         run iadmin lg testgroup1 | wc -l
-         [[ ${lines[0]} =~ "10" ]]
+         [[ ${lines[1]} =~ "11" ]]
 }
 
