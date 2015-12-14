@@ -22,20 +22,17 @@ setup(){
 
 @test "Check that iget can retrieve the txt document correctly" {
 	
-	echo $INSERT_FILE
 	run iget -K -f $INSERT_FILE 
-	echo $status 
-	echo $output
-	[ $status = 0 ]
+	[ $status -eq 0 ]
 	[ -e ${INSERT_FILE} ]
 }
 
-@test "Add Metadata" {
+@test "Add Unicode Metadata" {
 	run imeta add -d $INSERT_FILE unicode_test test_ɸ_value testunit
 	[ $status = 0 ]
 }
 
-@test "List Metadata" {
+@test "List Unicode Metadata" {
 	run imeta ls -d $INSERT_FILE
 	[[ ${lines[1]} =~ "attribute: unicode_test" ]]
 }
