@@ -3,5 +3,5 @@
 
 @test "Check that ten users are in testgroup1" {
         run iadmin lg testgroup1 | wc -l
-         [[ ${lines[0]} =~ "10" ]]
+         [[ ${lines[0]} =~ "11" ]]
 }
