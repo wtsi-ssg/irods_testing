@@ -7,6 +7,12 @@
     echo $output	
 	[ $status = "0" ]
 }
+#tests try account addition and removal
+@test "Add an account" {
+        run iadmin mkuser testaccount1 rodsuser
+    echo $output
+        [ $status = "0" ]
+}
 
 @test "Add testuser1 to scratchgroup" {
 	run iadmin atg scratchgroup testaccount1 	
@@ -17,6 +23,12 @@
 @test "remove testuser1 from scratchgroup" {
 	run iadmin rfg scratchgroup testaccount1 
 	[ $status = "0" ]
+}
+
+@test "remove an account" {
+        run iadmin rmuser testaccount1
+    echo $output
+        [ $status = "0" ]
 }
 
 @test "remove scratchgroup1" {
