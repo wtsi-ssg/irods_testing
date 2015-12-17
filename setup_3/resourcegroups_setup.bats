@@ -81,9 +81,9 @@
 	 ! [[ ${lines[@]} =~ "test-ablative" ]]
 }
 
-@test "re-add irods-ires2-testres1 to test-red resource group" {
-	run iadmin atrg test-red irods-ires2-testres1
-	echo $output
-	[ $status = 0 ]
-}
+
+
+
+
+
 

@@ -130,6 +130,7 @@
 
 @test "Check that ten users are in testgroup1" {
         run iadmin lg testgroup1 | wc -l
-         [[ ${lines[1]} =~ "11" ]]
+        echo ${lines[1} 
+        [[ "${lines[1]}" =~ "11" ]]
 }
 
