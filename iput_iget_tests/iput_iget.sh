@@ -1,6 +1,6 @@
 #!/bin/bash
 
-RESOURCE=replResc
+RESOURCE=$3
 
 re='^[0-9]+$'
 if ! [[ $2 =~ $re ]] ; then
