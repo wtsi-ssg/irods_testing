@@ -5,40 +5,40 @@
 
 @test "install rule acSetRescSchemeForCreate.re" {
 
-	run cp rules/acSetRescSchemeForCreate.re /usr/local/iRODS/server/config/reConfigs/
+	run cp setup_3/rules/acSetRescSchemeForCreate.re /usr/local/iRODS/server/config/reConfigs/
 	[ $status = "0" ]
 }
 # TODO: How do we test this?
 
 @test "install rule acPostProcForOpen.re" {
 	skip "this is a rule on irods-g1-dev, not production"
-	run cp rules/acPostProcForOpen.re /usr/local/iRODS/server/config/reConfigs/
+	run cp setup_3/rules/acPostProcForOpen.re /usr/local/iRODS/server/config/reConfigs/
 	[ $status = "0" ]
 }
 # TODO: How do we test this?
 
 @test "install JJN's modified rule acPostProcForPut.re" {
 
-	run cp rules/acPostProcForPut.re /usr/local/iRODS/server/config/reConfigs/
+	run cp setup_3/rules/acPostProcForPut.re /usr/local/iRODS/server/config/reConfigs/
 	[ $status = "0" ]
 }
 
 @test "install rule acPreprocForDataObjOpen.re" {
 
-	run cp rules/acPreprocForDataObjOpen.re /usr/local/iRODS/server/config/reConfigs/
+	run cp setup_3/rules/acPreprocForDataObjOpen.re /usr/local/iRODS/server/config/reConfigs/
 	[ $status = "0" ]
 }
 
 @test "install rule acTrashPolicy.re" {
 
-	run cp rules/acTrashPolicy.re /usr/local/iRODS/server/config/reConfigs/
+	run cp setup_3/rules/acTrashPolicy.re /usr/local/iRODS/server/config/reConfigs/
 	[ $status = "0" ]
 }
 
 
 @test "Overwrite core.re" {
 
-	run cp rules/core.re /usr/local/iRODS/server/config/reConfigs/
+	run cp setup_3/rules/core.re /usr/local/iRODS/server/config/reConfigs/
 	[ $status = "0" ]
 }
 
