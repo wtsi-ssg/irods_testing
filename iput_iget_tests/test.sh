@@ -1,6 +1,6 @@
 #/bin/bash 
 
-NUM_FILES=16
+NUM_FILES=$2
 
 #logarithmic scale test in MB
 for i in 1 10 100; do 
