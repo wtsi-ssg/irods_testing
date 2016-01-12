@@ -29,7 +29,7 @@ for i in $(seq -w "$N")
 do
     echo iput -R "${RESOURCE}" -K -f "$PWD"/random_file_128M_"$i"   >> /tmp/benchmarks.dir/iput-all
     echo iget -R "${RESOURCE}" -K -f random_file_128M_"$i" >> /tmp/benchmarks.dir/iget-all
-    echo irm random_file_128M_"$i" >> /tmp/bencharks.dir/irm-all
+    echo irm random_file_128M_"$i" >> /tmp/benchmarks.dir/irm-all
 done
 
 cd /tmp/benchmarks.dir
