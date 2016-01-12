@@ -8,14 +8,21 @@ for i in $1 $2;do
     fi
 done
 
+
 NUM_FILE=$1
+
+if [ $1 -lt 10 ]; then
+    PAD="0"
+else 
+    PAD=""
+fi
 SIZE_FILE=$2
 
 mkdir /tmp/random_files.dir
 
 cd /tmp/random_files.dir
 
-for i in `seq -w $NUM_FILE`
+for i in $(seq -w "$PAD""$NUM_FILE")
 do
     dd if=/dev/urandom of=random_file_128M_$i bs=1M count=$SIZE_FILE
 done
