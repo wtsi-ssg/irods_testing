@@ -10,13 +10,14 @@ done
 
 
 NUM_FILE=$1
+SIZE_FILE=$2
 
 if [ $1 -lt 10 ]; then
     PAD="0"
 else 
     PAD=""
 fi
-SIZE_FILE=$2
+
 
 mkdir /tmp/random_files.dir
 
