@@ -15,9 +15,9 @@ else
 fi
 
 if [ "$2" -lt "10" ]; then
-    N="0""$2"
+    PAD="0"
 else 
-    N="$2"
+    PAD=""
 fi
 mkdir -p /tmp/benchmarks.dir
 
@@ -25,11 +25,11 @@ mkdir -p /tmp/benchmarks.dir
 cd /tmp/random_files.dir
 
 rm /tmp/benchmarks.dir/iput-all /tmp/benchmarks.dir/iget-all /tmp/benchmarks.dir/irm-all
-for i in $(seq -w "$N")
+for i in $(seq -w "$PAD""$N")
 do
     echo iput -R "${RESOURCE}" -K -f "$PWD"/random_file_128M_"$i"   >> /tmp/benchmarks.dir/iput-all
     echo iget -R "${RESOURCE}" -K -f random_file_128M_"$i" >> /tmp/benchmarks.dir/iget-all
-    echo irm random_file_128M_"$i" >> /tmp/benchmarks.dir/irm-all
+    echo "irm random_file_128M_""$i" >> /tmp/benchmarks.dir/irm-all
 done
 
 cd /tmp/benchmarks.dir
