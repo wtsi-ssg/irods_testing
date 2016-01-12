@@ -7,41 +7,64 @@ if ! [[ $2 =~ $re ]] ; then
     echo "error: Not a number" >&2; exit 1
 fi
 
-if [ "$1" !=  "iput" ] && [ "$1" != "iget" ]  ;then
-    echo "error: Not 'iput' or 'iget'" 
+if [ "$1" !=  "iput" ] && [ "$1" != "iget" ] && [ "$1" != "irm" ]  ;then
+    echo "error: Not 'iput', 'iget' or 'irm'" 
     exit 1
+else
+    MODE="$1"  
 fi
 
 if [ "$2" -lt "10" ]; then
-    N=0$2
+    N="0""$2"
 else 
-    N=$2
+    N="$2"
 fi
 mkdir -p /tmp/benchmarks.dir
 
 
 cd /tmp/random_files.dir
 
-rm /tmp/benchmarks.dir/iput-all /tmp/benchmarks.dir/iget-all
-for i in `seq -w $N`
+rm /tmp/benchmarks.dir/iput-all /tmp/benchmarks.dir/iget-all /tmp/benchmarks.dir/irm-all
+for i in $(seq -w "$N")
 do
-    echo iput -R ${RESOURCE} -K -f $PWD/random_file_128M_$i   >> /tmp/benchmarks.dir/iput-all
-    echo iget -R ${RESOURCE} -K -f random_file_128M_$i >> /tmp/benchmarks.dir/iget-all
+    echo iput -R "${RESOURCE}" -K -f "$PWD"/random_file_128M_"$i"   >> /tmp/benchmarks.dir/iput-all
+    echo iget -R "${RESOURCE}" -K -f random_file_128M_"$i" >> /tmp/benchmarks.dir/iget-all
+    echo irm random_file_128M_"$i" >> /tmp/bencharks.dir/irm-all
 done
 
 cd /tmp/benchmarks.dir
 
 
 
-  for i in `seq -w $N`
+if [ "$MODE" == "iput" ]; then
+  READY=true
+else
+  READY=false
+fi 
+
+for i in $(seq -w "$N")
   do
-      echo $i $1 jobs:
+    if [ "$MODE" == "irm" ]; then
+      sed '"$i"q;d' "$MODE""-all" | irm 
+    
+    elif [ "$MODE" == "iget" ]; then
+      sed '"$i"q;d' "iput-all" | iput
+      if [ "$i" == "$N" ]; then
+        READY=true
+      fi
+    fi
+
+
+    if [ $READY ]; then
+
+      echo "$i" "$MODE" jobs:
       date
-      cat $1"-all" | head -$i | parallel --jobs $i --joblog $1.$i.log
+      cat "$MODE""-all" | head "-""$i" | parallel --jobs "$i" --joblog "$MODE"".""$i"".""log"
       date
-      md5sum /tmp/random_files.dir/random_file_128M_* | head -$i > /tmp/benchmark.md5
-      cat /tmp/random_files.md5 | head -$i > /tmp/sorted_random_files.md5
-      echo Checksum errors: $(comm -2 -3 /tmp/sorted_random_files.md5   /tmp/benchmark.md5 | wc -l )    
+      md5sum /tmp/random_files.dir/random_file_128M_* | head "-""$i" > /tmp/benchmark.md5
+      cat /tmp/random_files.md5 | head "-""$i" > /tmp/sorted_random_files.md5
+      echo Checksum errors: "$(comm -2 -3 /tmp/sorted_random_files.md5   /tmp/benchmark.md5 | wc -l )"    
       sleep 5
+    fi
 
 done 2>&1 | tee benchmark.log
