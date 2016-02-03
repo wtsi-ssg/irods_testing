@@ -6,28 +6,56 @@ harness that aims to test both pre and post upgrade functionality. We're also us
 
 The long term aim is to get tests we can also use for a Continus Integration system, but thats not what this is aimed at.
 
-It relies on having a test infrastructure built (we use Vagrant and Virtualbox, seperate Repo to come, maybe), named like this;
-
-db
-icat
-ires1
-ires2
-
-once iRODS is installed on all icat, and both ires servers, the tests are assumed to run on icat, unless otherwise specified (for example, there are some resource setup tests that run on the ires servers).  
 
 Setup
------
+=====
 
 git clone https://github.com/wtsi-ssg/irods_testing.git
 
-Test Plan
----------
-In the order of; icat, ires1, ires2, do
+Test Methodology
+================
+
+For testing iRODS 3.3.1
+-----------------------
+
+ssh onto the iCAT server
+
+For testing irods 3.3.1
+cd irods_testing
+./scripts/v3/icat/setup
+
+
+ssh onto each iRES server in turn
+cd irods_testing
+./scripts/v3/ires/setup
+
+ssh back onto the iCAT server 
 
 cd irods_testing
-./test.sh
+./scripts/v3/icat/tests
 
-Once these have passed, on the icat run
-./scripts/run_after_icat_and_both_ires.sh
 
-*Note* How we switch between upgrade and post upgrade and setup and post setup tests is still being worked out...
+
+For testing iRODS 4.1.x
+-----------------------
+
+ssh onto the iCAT server
+
+For testing irods 3.3.1
+cd irods_testing
+./scripts/v4/icat/setup
+
+
+ssh onto each iRES server in turn
+cd irods_testing
+./scripts/v4/ires/setup
+
+ssh back onto the iCAT server 
+
+cd irods_testing
+./scripts/v4/icat/tests
+
+To Do
+-----
+
+  1. ssh on and run the scripts automatically
