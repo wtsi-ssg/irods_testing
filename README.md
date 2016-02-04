@@ -10,7 +10,10 @@ The long term aim is to get tests we can also use for a Continus Integration sys
 Setup
 =====
 
-git clone https://github.com/wtsi-ssg/irods_testing.git
+After cloning the repo you need to install bats:
+cd irods_testings/bats/
+./install.sh /usr/local/
+
 
 Test Methodology
 ================
