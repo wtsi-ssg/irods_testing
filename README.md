@@ -23,7 +23,6 @@ For testing iRODS 3.3.1
 
 ssh onto the iCAT server
 
-For testing irods 3.3.1
 cd irods_testing
 ./scripts/v3/icat/setup
 
@@ -44,7 +43,6 @@ For testing iRODS 4.1.x
 
 ssh onto the iCAT server
 
-For testing irods 3.3.1
 cd irods_testing
 ./scripts/v4/icat/setup
 
