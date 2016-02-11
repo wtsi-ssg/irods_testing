@@ -1,11 +1,5 @@
 # setup quotas on system
 
-@test "Install rule for enabling quotas" {
-    echo $output
-    echo $status
-    [ $status = 0 ]
-}
-
 @test "Add quotatestaccount1" {
         run iadmin mkuser quotatestaccount1 rodsuser
     echo $output        
