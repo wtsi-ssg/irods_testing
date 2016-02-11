@@ -1,7 +1,7 @@
 #!/bin/bash 
 
 
-ARRAY=( ./setup_3/resourcegroups_setup.bats ./setup_3/rules_setup.bats ./bats_scripts/replication.bats ./bats_scripts/trashcan.bats ./bats_scripts/useraccounts.bats  ./bats_scripts/multiple_users_groups.bats ./bats_scripts/permissions_set.bats ./bats_scripts/unicode.bats )
+ARRAY=( ./setup_3/resourcegroups_setup.bats ./setup_3/rules_setup.bats ./bats_scripts/replication.bats ./bats_scripts/trashcan.bats ./bats_scripts/useraccounts.bats  ./bats_scripts/multiple_users_groups.bats ./bats_scripts/permissions_set.bats ./bats_scripts/unicode.bats ./setup_3/quota_setup.bats )
 
 for FILE in ${ARRAY[@]};do
 	bats $FILE
