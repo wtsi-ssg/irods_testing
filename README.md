@@ -11,8 +11,7 @@ Setup
 =====
 
 After cloning the repo you need to install bats:  
-cd irods_testings/bats/  
-./install.sh /usr/local/
+cd irods_testings/bats/; ./install.sh /usr/local/
 
 
 Test Methodology
@@ -23,13 +22,15 @@ For testing iRODS 3.3.1
 
 ssh onto the iCAT server
 
-cd irods_testing
-./scripts/v3/icat/setup
+cd irods_testings/bats/; ./install.sh /usr/local/
+cd ~; git clone https://github.com/wtsi-ssg/irods_testing.git
+cd irods_testing; ./scripts/v3/icat/setup
 
 
 ssh onto each iRES server in turn
-cd irods_testing
-./scripts/v3/ires/setup
+cd irods_testings/bats/; ./install.sh /usr/local/
+cd ~; git clone https://github.com/wtsi-ssg/irods_testing.git
+cd irods_testing; ./scripts/v3/ires/setup
 
 ssh back onto the iCAT server 
 
@@ -43,18 +44,20 @@ For testing iRODS 4.1.x
 
 ssh onto the iCAT server
 
-cd irods_testing
-./scripts/v4/icat/setup
+cd irods_testings/bats/; ./install.sh /usr/local/
+cd ~; git clone https://github.com/wtsi-ssg/irods_testing.git
+cd irods_testing; ./scripts/v4/icat/setup
 
 
 ssh onto each iRES server in turn
-cd irods_testing
-./scripts/v4/ires/setup
+
+cd irods_testings/bats/; ./install.sh /usr/local/
+cd ~; git clone https://github.com/wtsi-ssg/irods_testing.git
+cd irods_testing; ./scripts/v4/ires/setup
 
 ssh back onto the iCAT server 
 
-cd irods_testing
-./scripts/v4/icat/tests
+cd irods_testing; ./scripts/v4/icat/tests
 
 To Do
 -----
