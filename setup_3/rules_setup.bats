@@ -36,6 +36,12 @@
 }
 
 
+@test "install rule acRescQuotaPolicy.re" {
+
+	run cp setup_3/rules/acRescQuotaPolicy.re /usr/local/iRODS/server/config/reConfigs/
+	[ $status = "0" ]
+}
+
 @test "Overwrite core.re" {
 
 	run cp setup_3/rules/core.re /usr/local/iRODS/server/config/reConfigs/

@@ -674,7 +674,8 @@ acPostProcForGenQuery(*genQueryInpStr,*genQueryOutStr,*genQueryStatusStr) { }
 #      "on"  - enable Resource Quota enforcement,
 #      "off" - disable Resource Quota enforcement (default). 
 # acRescQuotaPolicy {msiSetRescQuotaPolicy("off"); }
-acRescQuotaPolicy {msiSetRescQuotaPolicy("off"); }
+#acRescQuotaPolicy {msiSetRescQuotaPolicy("off"); }
+@include "acRescQuotaPolicy"
 #
 #
 # 51) acBulkPutPostProcPolicy - This rule set the policy for executing
