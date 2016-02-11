@@ -44,7 +44,7 @@ git clone https://github.com/sstephenson/bats.git
 cd bats
 sudo ./install.sh /usr/local
 cd ~; git clone https://github.com/wtsi-ssg/irods_testing.git
-cd irods_testing; ./scripts/v3/ires/setup
+cd irods_testing; ./scripts/v3/ires/setup.sh
 ```
 ssh back onto the iCAT server 
 ```
