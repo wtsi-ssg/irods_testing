@@ -1,7 +1,7 @@
 #!/bin/bash 
 
 
-ARRAY=( ./setup_3/resourcegroups_setup.bats ./setup_3/rules_setup.bats ./bats_scripts/replication.bats ./bats_scripts/trashcan.bats ./bats_scripts/useraccounts.bats  ./bats_scripts/multiple_users_groups.bats ./bats_scripts/permissions_set.bats ./bats_scripts/unicode.bats ./setup_3/quota_setup.bats setup_3/create_quotatestaccount2_ifiles.bats setup_3/setup_quotatestaccount2_authentication.bats bats_scripts/verify_quotas.bats bats_scripts/verify_quota_for_user.sh )
+ARRAY=( ./setup_3/resourcegroups_setup.bats ./setup_3/rules_setup.bats ./bats_scripts/replication.bats ./bats_scripts/trashcan.bats ./bats_scripts/useraccounts.bats  ./bats_scripts/multiple_users_groups.bats ./bats_scripts/permissions_set.bats ./bats_scripts/unicode.bats ./setup_3/quota_setup.bats setup_3/create_quotatestaccount2_ifiles.bats setup_3/setup_quotatestaccount2_authentication.bats bats_scripts/verify_quotas.bats bats_scripts/verify_quota_for_user.sh setup_3/create_quotatestaccount1_ifiles.bats setup_3/setup_quotatestaccount1_authentication.bats )
 
 for FILE in ${ARRAY[@]};do
 	bats $FILE
