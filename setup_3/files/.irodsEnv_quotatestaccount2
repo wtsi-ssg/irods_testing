@@ -13,7 +13,3 @@ irodsCwd '/tempZone/home/quotatestaccount2'
 irodsUserName 'quotatestaccount2'
 # Zone:
 irodsZone 'tempZone'
-EOL
-
-       [ $status = "0" ]
-}
