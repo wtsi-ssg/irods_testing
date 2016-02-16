@@ -16,6 +16,3 @@
        [ $status = "0" ]
 }
 
-@test "Attempt to upload file larger than quota for quotatestaccount2" {
-        run 
-}
