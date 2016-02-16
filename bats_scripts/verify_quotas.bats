@@ -2,13 +2,13 @@
 
 @test "Verify Quota on User" {
         run iadmin lq quotatestaccount2
-        [[ ${lines[7} =~ "quota_limit: 100" ]]
+        [[ ${lines[5]} =~ "quota_limit: 100" ]]
 }
 
 
 @test "Verify Quota on Group" {
         run iadmin lq quotatestgroup1
-        [[ ${lines[7]} =~ "quota_limit: 200" ]]
+        [[ ${lines[5]} =~ "quota_limit: 200" ]]
 }
 
 @test "Regenerate quota usage before adding files" {
