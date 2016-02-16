@@ -3,18 +3,18 @@
 # setup_3/quota_setup.bats
 # setup_3/setup_quotatestaccount2_authentication.bats
 
-@setup() {
+setup() {
     export irodsEnvFile='/home/vagrant/.irods/.irodsEnv_quotatestaccount2'
     export irodsAuthFileName='/home/vagrant/.irods/.irodsA_quotatestaccount2'
     dd if=/dev/zero of=/tmp/quotatestaccount2_test bs=1b count=101
 }
 
-@test "Attempt to upload file larger than quota for quotatestaccount2" {
+@test "Confirm Failure to upload file larger than quota for quotatestaccount2" {
     run iput -K /tmp/quotatestaccount2_test
     [ "$status" -eq 3 ]
 }
 
-@teardown() {
+teardown() {
     unset irodsEnvFile
     unset irodsAuthFileName
     rm /tmp/quotatestaccount2_test
