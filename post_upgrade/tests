@@ -1,0 +1,8 @@
+#!/bin/bash 
+
+
+ARRAY=( ./bats_scripts/simple_group_tests.bats ./bats_scripts/icommands.bats ./bats_scripts/replication.bats ./bats_scripts/trashcan.bats ./bats_scripts/useraccounts.bats  ./bats_scripts/multiple_users_groups.bats ./bats_scripts/permissions_set.bats ./bats_scripts/unicode.bats ./bats_scripts/verify_quotas.bats ./bats_scripts/verify_quota_for_user.sh )
+
+for FILE in ${ARRAY[@]};do
+	bats $FILE
+done

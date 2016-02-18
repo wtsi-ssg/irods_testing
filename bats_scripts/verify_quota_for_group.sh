@@ -1,7 +1,7 @@
 #test that quotas work for a single user
 # needs to have the following run first
-# setup_3/quota_setup.bats
-# setup_3/setup_quotatestaccount1_authentication.bats
+# quota_setup.bats
+# setup_quotatestaccount1_authentication.bats
 
 setup() {
     export irodsEnvFile='/home/vagrant/.irods/.irodsEnv_quotatestaccount1'
@@ -17,6 +17,6 @@ setup() {
 teardown() {
     unset irodsEnvFile
     unset irodsAuthFileName
-    rm /tmp/quotatestaccount2_test
+    rm /tmp/quotatestaccount1_test
 }
 

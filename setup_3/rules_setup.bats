@@ -38,7 +38,7 @@
 
 @test "install rule acRescQuotaPolicy.re" {
 
-	run cp setup_3/rules/acRescQuotaPolicy.re /usr/local/iRODS/server/config/reConfigs/
+	run cp files/acRescQuotaPolicy.re /usr/local/iRODS/server/config/reConfigs/
 	[ $status = "0" ]
 }
 

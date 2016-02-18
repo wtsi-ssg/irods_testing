@@ -6,7 +6,7 @@
 }
 
 @test "create quotatestaccount2 .irodsEnv file" {
-        run cp setup_3/files/.irodsEnv_quotatestaccount2 ~/.irods/.irodsEnv_quotatestaccount2
+        run cp files/.irodsEnv_quotatestaccount2 ~/.irods/.irodsEnv_quotatestaccount2
        [ $status = "0" ]
 }
 
