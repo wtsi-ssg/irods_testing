@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-ARRAY=(./bats_scripts/icommands.bats ./setup4/icat_resource.bats ./bats_scripts/useraccounts.bats ./bats_scripts/simple_group_tests.bats)
+ARRAY=(./bats_scripts/icommands.bats ./setup4/icat_resource.bats ./bats_scripts/useraccounts.bats ./bats_scripts/simple_group_tests.bats .//bats_scripts/create_quotatestaccount1_ifiles.bats .//bats_scripts/create_quotatestaccount2_ifiles.bats .//bats_scripts/quota_setup.bats .//bats_scripts/set_quotas.bats .//bats_scripts/setup_quotatestaccount1_authentication.bats .//bats_scripts/setup_quotatestaccount2_authentication.bats )
 
 for FILE in ${ARRAY[@]};do
 	echo $FILE
