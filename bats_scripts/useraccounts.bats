@@ -2,13 +2,13 @@
 
 #tests try account addition and removal
 @test "Add an account" {
-	run iadmin mkuser testuseraccount rodsuser
+	run iadmin mkuser scratchtestuseraccount rodsuser
     echo $output	
 	[ $status = "0" ]
 }
 
 @test "remove an account" {
-	run iadmin rmuser testuseraccount
+	run iadmin rmuser scratchtestuseraccount
     echo $output	
 	[ $status = "0" ]
 }
