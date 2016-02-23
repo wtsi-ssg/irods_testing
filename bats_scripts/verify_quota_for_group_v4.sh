@@ -15,8 +15,8 @@ setup() {
 }
 
 teardown() {
-    unset irodsEnvFile
-    unset irodsAuthFileName
+    unset IRODS_ENVIRONMENT_FILE
+    unset IRODS_AUTHENTICATION_FILE
     rm /tmp/quotatestaccount1_test
 }
 
