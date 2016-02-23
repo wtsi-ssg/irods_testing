@@ -1,6 +1,10 @@
 #!/usr/bin/env bats
 
-# post upgrade access of replicatewd files
+# post upgrade access of replicated files
+
+setup(){
+	INSERT_FILE=irods_automated_replication_test.txt
+}
 
 @test "Check that iget can retrieve the document correctly from first replica " {
 	
