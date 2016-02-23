@@ -4,8 +4,8 @@
 # setup_quotatestaccount1_authentication.bats
 
 setup() {
-    export irodsEnvFile='/home/vagrant/.irods/irods_environment.json_quotatestaccount1'
-    export irodsAuthFileName='/home/vagrant/.irods/.irodsA_quotatestaccount1'
+    export IRODS_ENVIRONMENT_FILE='/home/vagrant/.irods/irods_environment.json_quotatestaccount1'
+    export IRODS_AUTHENTICATION_FILE='/home/vagrant/.irods/.irodsA_quotatestaccount1'
     dd if=/dev/zero of=/tmp/quotatestaccount1_test bs=1b count=101
 }
 
