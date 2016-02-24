@@ -1,0 +1,8 @@
+#!/bin/bash 
+
+
+ARRAY=( ./bats_scripts/convert_ifiles_to_json.bats ./bats_scripts/icommands.bats ./bats_scripts/post_upgrade_replication.bats ./bats_scripts/trashcan.bats ./bats_scripts/useraccounts.bats  ./bats_scripts/permissions_verify.bats ./bats_scripts/unicode_verify.bats ./bats_scripts/verify_quotas.bats ./bats_scripts/verify_quota_for_user_v4.sh ./bats_scripts/verify_quota_for_group_v4.sh )
+
+for FILE in ${ARRAY[@]};do
+	bats $FILE
+done

@@ -2,7 +2,7 @@
 
 GREEN='\033[0;32m'
 
-ARRAY=( resourcegroups_setup.bats )
+ARRAY=( resourcegroups_setup.bats .//bats_scripts/verify_quotas.bats ./bats_scripts/verify_quota_for_user_v4.sh ./bats_scripts/verify_quota_for_group_v4.sh )
 
 for FILE in ${ARRAY[@]};do
 	printf "${GREEN}%*s\n" "${COLUMNS:-$(tput cols)}" '' | tr ' ' \#

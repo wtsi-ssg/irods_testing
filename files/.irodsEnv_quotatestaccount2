@@ -1,0 +1,15 @@
+# iRODS server host name:
+irodsHost 'icat'
+# iRODS server port number:
+irodsPort 1247
+
+# Default storage resource name:
+irodsDefResource 'demoResc'
+# Home directory in iRODS:
+irodsHome '/tempZone/home/quotatestaccount2'
+# Current directory in iRODS:
+irodsCwd '/tempZone/home/quotatestaccount2'
+# Account name:
+irodsUserName 'quotatestaccount2'
+# Zone:
+irodsZone 'tempZone'
