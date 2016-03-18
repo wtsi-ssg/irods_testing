@@ -1,5 +1,5 @@
 #!/bin/bash 
 
-bats ./bats_scripts/icommands.bats ./setup4/icat_resource.bats ./bats_scripts/useraccounts.bats ./bats_scripts/simple_group_tests.bats >> ~/logs/icat_v4_setup_test.log
+bats ./bats_scripts/icommands.bats ./bats_scripts/icat_resource.bats ./bats_scripts/useraccounts.bats ./bats_scripts/simple_group_tests.bats | tee logs/icat_v4_setup_test.log
 
-cat ~/logs/icat_v4_setup_test.log | grep "not ok" && exit 1
+cat logs/icat_v4_setup_test.log | grep "not ok" && exit 1
