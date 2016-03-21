@@ -9,9 +9,9 @@ setup(){
 	DEFAULT_RESOURCE_GROUP=test-green
 }
 
-@test "Check that iput stores a txt document with replicas" {	
+@test "Check that iput stores a txt document" {	
 
- 	iput -K -f -R $DEFAULT_RESOURCE_GROUP $INSERT_FILE
+ 	iput -K -f -R passThru $INSERT_FILE
 	run ils
 	for i in $lines[@]; do
 		if [ i = $INSERT_FILE ]; then
