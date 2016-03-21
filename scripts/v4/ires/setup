@@ -1,8 +1,5 @@
 #!/bin/bash
 
-ARRAY=(./bats_scripts/icommands.bats ./setup_4/ires_resource.bats)
+bats ./bats_scripts/icommands.bats ./setup_4/ires_resource.bats | tee ./logs/v4_ires_setup.log
 
-for FILE in ${ARRAY[@]};do
-        echo $FILE
-	bats $FILE
-done
+cat logs/v4_ires_setup.log | grep "not ok" && exit 1
